@@ -5,13 +5,12 @@ import googleimg from '../Images/google.png'
 import './login.css'
 import {  useDispatch } from 'react-redux';
 import {loginData} from '../redux/actions/action'
-import {useHistory} from 'react-router-dom'
+import {useHistory,Link} from 'react-router-dom'
 function Login() {
   const history = useHistory()
   const [email,setEmail]= useState('')
   const [password,setPassword]= useState('') 
-  const [loginStatus,setLoginStatus]=useState('') 
-  
+  const [loginStatus,setLoginStatus]=useState('') // eslint-disable-line no-unused-vars
   const dispatch = useDispatch()
 
   const loginHandler=(e)=>{
@@ -63,7 +62,7 @@ function Login() {
             <input type="email" class="form-control" required   onChange={(e)=>{setEmail(e.target.value)}}/>
             <label   class="form-label">password</label>
             <input type="password" class="form-control" required  onChange={(e)=>{setPassword(e.target.value)}}/>
-            {/* // eslint-disable-next-line */}
+            {/*  eslint-disable-next-line */}
             <a href="#" className="forgotPass">forgot Password?</a>
             <button type="submit"  class="btn ">Sign In</button>
           </form>
@@ -74,7 +73,7 @@ function Login() {
             <p>  Sign In with Google </p>
           </button> 
 
-          <label>New Lovebirds ?<a>Create Account</a></label>
+          <label>New Lovebirds ?<Link>Create Account</Link></label>
           </center>
          
           </div>

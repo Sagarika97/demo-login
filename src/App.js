@@ -14,16 +14,15 @@ function App() {
   // const counter =  useSelector(state => state.counter)
   const isLogged =  useSelector(state => state.isLogged)
   const dispatch = useDispatch()
-
-  useEffect(() => {
-    const listUsers=(e)=>{ 
-      Axios.get('http://localhost:3001/listUsers')
-      .then((res)=>{ 
-        dispatch(listOfUser(res.data)) 
-      })
-      }
-      listUsers()
-},[isLogged]) 
+  const listUsers=(e)=>{ 
+    Axios.get('http://localhost:3001/listUsers')
+    .then((res)=>{ 
+      dispatch(listOfUser(res.data)) 
+    })
+    }
+  useEffect(() => { 
+    listUsers()
+},[isLogged])  // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
         <Router> 
